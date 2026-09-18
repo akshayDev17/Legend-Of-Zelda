@@ -7,11 +7,14 @@ include(FindPkgConfig)
 
 pkg_check_modules(GLFW3 REQUIRED glfw3)
 include_directories(${GLFW3_INCLUDE_DIRS})
-target_link_libraries (${PROJECT_NAME} ${GLFW3_LIBRARIES})
+target_link_libraries (${PROJECT_NAME} ${GLFW3_LINK_LIBRARIES})
 
 pkg_check_modules(GLEW REQUIRED glew)
 include_directories(${GLEW_INCLUDE_DIRS})
-target_link_libraries (${PROJECT_NAME} ${GLEW_LIBRARIES})
+target_link_libraries (${PROJECT_NAME} ${GLEW_LINK_LIBRARIES})
+
+pkg_check_modules(GLM REQUIRED glm)
+include_directories(${GLM_INCLUDE_DIRS})
 
 if (NOT APPLE)
   pkg_check_modules(GL REQUIRED gl)

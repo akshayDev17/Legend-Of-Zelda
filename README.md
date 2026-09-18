@@ -1,6 +1,40 @@
 Graphics Zelda 3d Game
 =========================
 
+## Setup (macOS)
+
+The game is written in C++ with OpenGL 3.3 Core and uses GLFW, GLEW and GLM.
+
+### Prerequisites
+
+* Xcode Command Line Tools (`xcode-select --install`)
+* [Homebrew](https://brew.sh)
+
+### Install dependencies
+
+```bash
+brew install cmake pkg-config glfw glew glm
+```
+
+### Build
+
+```bash
+cmake -S . -B build -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DCMAKE_CXX_FLAGS="-DGLM_ENABLE_EXPERIMENTAL"
+cmake --build build -j
+```
+
+* `CMAKE_POLICY_VERSION_MINIMUM=3.5` lets CMake 4.x accept this project's old `cmake_minimum_required(VERSION 2.8)`.
+* `GLM_ENABLE_EXPERIMENTAL` is required by recent GLM versions for the `glm/gtx/*` headers.
+
+### Run
+
+```bash
+cd build
+./graphics_asgn1
+```
+
+Run the game from inside `build/`, because it loads the `Sample_GL.vert` and `Sample_GL.frag` shaders from the current directory.
+
 ## Controls of the game:
 
 * w,s,a,d = move forward,backward,left,right.
